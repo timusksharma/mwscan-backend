@@ -1,0 +1,42 @@
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "mwscan",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "logger": false,
+    "define": {
+      "timestamps": true,
+      "createdAt": "created_at",
+      "updatedAt": "updated_at",
+      "deletedAt": "deleted_at"
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "mwscan",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "define": {
+      "timestamps": true,
+      "createdAt": "created_at",
+      "updatedAt": "updated_at",
+      "deletedAt": "deleted_at"
+    }
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "mwscan",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "define": {
+      "timestamps": true,
+      "createdAt": "created_at",
+      "updatedAt": "updated_at",
+      "deletedAt": "deleted_at"
+    }
+  }
+}
