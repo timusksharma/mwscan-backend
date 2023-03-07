@@ -33,6 +33,9 @@ module.exports = {
       remember_token: {
         type: Sequelize.STRING,
       },
+      phone_no: {
+        type: Sequelize.STRING,
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,

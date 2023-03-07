@@ -31,6 +31,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      phone_no: {
+        type: DataTypes.STRING,
+      },
       remember_token: {
         type: DataTypes.STRING,
       },

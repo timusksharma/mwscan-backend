@@ -58,3 +58,27 @@ passport.use(
     }
   )
 );
+
+passport.use(
+  "triager",
+  new StrategyJwt(
+    {
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: process.env.JWT_SECRET_KEY,
+    },
+    function (jwtPayload, done) {
+      if (jwtPayload.role === "triager") {
+        return user
+          .findOne({ where: { id: jwtPayload.id } })
+          .then((result) => {
+            return done(null, result);
+          })
+          .catch((err) => {
+            return done(err);
+          });
+      } else {
+        return done(null, false);
+      }
+    }
+  )
+);
