@@ -1,10 +1,10 @@
+require("dotenv").config();
 const express = require("express");
-require("./middleware/auth");
-
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
-require("dotenv").config();
+
+require("./middleware/auth");
 const indexRouter = require("./routes/index");
 const app = express();
 const { sequelize } = require("./models");
