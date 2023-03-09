@@ -13,7 +13,7 @@ const sequelize = require("sequelize");
 const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    const result = await admin.findOne({
+    const result = await triager.findOne({
       where: {
         email: email,
         password: password,
@@ -26,7 +26,7 @@ const login = async (req, res, next) => {
       });
     } else {
       const token = jwt.sign(
-        { id: result.id, uuid: result.uuid, role: "admin" },
+        { id: result.id, uuid: result.uuid, role: "triager" },
         process.env.JWT_SECRET_KEY,
         { expiresIn: "1d" }
       );
@@ -40,6 +40,6 @@ const login = async (req, res, next) => {
   }
 };
 
-exports.admin = {
+exports.triager = {
   login: login,
 };

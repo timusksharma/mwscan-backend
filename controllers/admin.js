@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 const { admin } = require("../models");
+const { user } = require("../models");
 const { triager } = require("../models");
 const { Op } = require("sequelize");
 const sequelize = require("sequelize");
@@ -92,6 +93,34 @@ const getUsers = async (req, res, next) => {
 };
 
 /**Users --END----------------------------------------------------------*/
+
+/**
+ * Add User
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+const addUser = async (req, res, next) => {
+  try {
+    const { first_name, last_name, email, password, phone_no } = req.body;
+    const result = await user.findOrCreate({
+      where: { email: email },
+      defaults: {
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        password: password,
+        phone_no: phone_no,
+      },
+    });
+    if (result[1] == false) {
+      throw new Error("Email Already Exist");
+    }
+    res.json(result);
+  } catch (error) {
+    res.json(error);
+  }
+};
 
 /**
  * Add Triager
@@ -211,4 +240,5 @@ exports.admin = {
   addTriager: addTriager,
   getTriager: getTriager,
   editTriager: editTriager,
+  addUser: addUser,
 };

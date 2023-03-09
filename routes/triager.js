@@ -6,14 +6,14 @@ const passport = require("passport");
 const TriagerController = require("../controllers/triager");
 
 /* Login */
-router.post("/login", TriagerController.admin.login);
+router.post("/login", TriagerController.triager.login);
 
-/*Users */
-/* Get Users */
-router.get(
-  "/user",
-  passport.authenticate("admin", { session: false }),
-  AdminController.admin.getUsers
-);
+// /*Users */
+// /* Get Users */
+// router.get(
+//   "/user",
+//   passport.authenticate("admin", { session: false }),
+//   AdminController.admin.getUsers
+// );
 
 module.exports = router;

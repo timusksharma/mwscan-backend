@@ -39,12 +39,20 @@ router.put(
 //   AdminController.admin.deleteTriager
 // );
 
-// /*Users */
-// /* Get Users */
-// router.get(
-//   "/user",
-//   passport.authenticate("admin", { session: false }),
-//   AdminController.admin.getUsers
-// );
+/*Company Users */
+/* Get Users */
+router.get(
+  "/user",
+  passport.authenticate("admin", { session: false }),
+  AdminController.admin.getUsers
+);
+
+/*Company  */
+/* Add User */
+router.post(
+  "/user",
+  passport.authenticate("admin", { session: false }),
+  AdminController.admin.addUser
+);
 
 module.exports = router;
