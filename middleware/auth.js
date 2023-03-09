@@ -68,7 +68,7 @@ passport.use(
     },
     function (jwtPayload, done) {
       if (jwtPayload.role === "triager") {
-        return user
+        return triager
           .findOne({ where: { id: jwtPayload.id } })
           .then((result) => {
             return done(null, result);
